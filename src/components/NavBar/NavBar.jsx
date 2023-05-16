@@ -2,6 +2,8 @@ import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export const NavBar = () => {
   return (
@@ -17,7 +19,10 @@ export const NavBar = () => {
           }
         />
       </div>
-      <button>Login</button>
+      <Button>Login</Button>
+      <FavoriteBorderIcon />
+      <ShoppingCartIcon />
+      <p>cart</p>
     </nav>
   );
 };
