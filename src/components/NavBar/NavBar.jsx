@@ -4,12 +4,16 @@ import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import "./NavBar.css";
 
 export const NavBar = () => {
   return (
     <nav>
-      <p>Shopify</p>
-      <div>
+      <div className="title">
+        <p>Shopify</p>
+      </div>
+
+      <div className="search">
         <Input
           id="input-with-icon-adornment"
           startAdornment={
@@ -19,10 +23,12 @@ export const NavBar = () => {
           }
         />
       </div>
-      <Button>Login</Button>
-      <FavoriteBorderIcon />
-      <ShoppingCartIcon />
-      <p>cart</p>
+      <div className="actions">
+        <Button>Login</Button>
+        <FavoriteBorderIcon />
+        <ShoppingCartIcon />
+        <p>cart</p>
+      </div>
     </nav>
   );
 };
