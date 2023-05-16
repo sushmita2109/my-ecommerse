@@ -1,0 +1,18 @@
+nav{
+    background-color: peachpuff;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    padding: 8px;
+    gap: 1px;
+    flex-wrap: wrap;
+}
+
+.title{
+    font-weight: bold;
+    border: none;
+}
+
+.actions p{
+    display: inline-block;
+}
