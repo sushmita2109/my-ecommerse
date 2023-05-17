@@ -10,7 +10,7 @@ export const NavBar = () => {
   return (
     <nav>
       <div className="title">
-        <p>Shopify</p>
+        <p>SneakerShop</p>
       </div>
 
       <div className="search">
