@@ -1,16 +1,21 @@
 nav{
-    background-color: peachpuff;
+    background-color: red;
     display: flex;
     justify-content: space-between;
     height: 10vh;
     padding: 8px;
     gap: 1px;
     flex-wrap: wrap;
+    color: white;
 }
 
 .title{
     font-weight: bold;
     border: none;
+}
+
+.actions Button{
+    color: white;
 }
 
 .actions p{
