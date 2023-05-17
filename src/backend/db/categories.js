@@ -8,20 +8,14 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Men Sneakers",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Sneakers (also called trainers, athletic shoes, tennis shoes, gym shoes, kicks, sport shoes, flats, running shoes, or runners) are shoes primarily designed for sports or other forms of physical exercise, but which are also widely used for everyday casual wear.",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "Women Sneakers",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
-  },
-  {
-    _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Trends do not mean much to you. What matters is affordability along with comfort. You believe brands cannot define who you really are. ",
   },
 ];
