@@ -1,0 +1,30 @@
+.loginPage{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid ;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    padding: 8px;
+    gap:8px
+}
+
+.inputLogin{
+display: flex;
+flex-direction: column;
+gap:1px;
+}
+
+.loginBtn{
+    border: 1px solid ;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    font-weight: bold;
+}
+.signupLink{
+    text-decoration: none;
+    color: black;
+}
