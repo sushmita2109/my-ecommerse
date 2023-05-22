@@ -8,23 +8,42 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    title: "Black Solid Softride Pro Coast Training Shoes",
+    brand: "Puma",
+    price: "Rs. 5199",
+    size: [3, 4, 5, 6],
+    image:
+      "https://rukminim1.flixcart.com/image/832/832/l4d2ljk0/shoe/j/p/5/-original-imagf9vhhsmzfjxp.jpeg?q=70",
+    categoryName: "Women Sneakers",
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    title: "Boys Striped LED Slip-On Sneakers",
+    brand: "Skechers",
+    price: "Rs. 4199",
+    size: [6, 7, 8, 10],
+    image:
+      "https://rukminim1.flixcart.com/image/832/832/kq5iykw0/shoe/s/n/4/6-232211-7-skechers-nvy-original-imag48gdatsnvz99.jpeg?q=70",
+    categoryName: "Men Sneakers",
   },
   {
     _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
+    title: "Hustle V2 Wns Running Shoes For Women",
+    brand: "Puma",
+    price: "Rs. 1400",
+    size: [3, 4, 5, 6],
+    image:
+      "https://rukminim1.flixcart.com/image/832/832/l4rd0280/shoe/m/a/q/-original-imagfh7qzmjjcftj.jpeg?q=70",
     categoryName: "fiction",
+  },
+  {
+    _id: uuid(),
+    title: "Men Lite Pro Clear Rush Sneakers",
+    brand: "Skechers",
+    price: "Rs. 4399",
+    size: [7, 8, 9, 10],
+    image:
+      "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/n/v/z/-original-imagkjqmqdjymyg8.jpeg?q=70",
+    categoryName: "Men Sneakers",
   },
 ];
