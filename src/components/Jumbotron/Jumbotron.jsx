@@ -1,4 +1,5 @@
 import "./Jumbotron.css";
+import { Link } from "react-router-dom";
 
 export const Jumbotron = () => {
   return (
@@ -7,9 +8,9 @@ export const Jumbotron = () => {
         <h1 className="display-4">SneakerStore</h1>
         <p className="lead">This is a brand new sneaker store.</p>
 
-        <a className="btn" href="#" role="button">
+        <Link className="btn" to="/product" role="button">
           Shop more
-        </a>
+        </Link>
       </div>
     </div>
   );

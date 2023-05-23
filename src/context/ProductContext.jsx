@@ -1,21 +1,16 @@
-import { createContext, useContext, useEffect } from "react";
-
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { reducer } from "./Reducer";
 export const ProductContext = createContext();
 
+const initialState = {
+  allProducts: [],
+};
+
 export const ProductProvider = ({ children }) => {
-  const getData = async () => {
-    try {
-      const res = await fetch("/api/products");
-      console.log(await res.json());
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  useEffect(() => {
-    getData();
-  }, []);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <ProductContext.Provider value={{ getData }}>
+    <ProductContext.Provider value={{ state, dispatch }}>
       {children}
     </ProductContext.Provider>
   );

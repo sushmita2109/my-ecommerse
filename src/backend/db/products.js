@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "Black Solid Softride Pro Coast Training Shoes",
+    name: "Black Solid Softride Pro Coast Training Shoes",
     brand: "Puma",
     price: "Rs. 5199",
     size: [3, 4, 5, 6],
@@ -18,7 +18,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Boys Striped LED Slip-On Sneakers",
+    name: "Boys Striped LED Slip-On Sneakers",
     brand: "Skechers",
     price: "Rs. 4199",
     size: [6, 7, 8, 10],
@@ -28,7 +28,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Hustle V2 Wns Running Shoes For Women",
+    name: "Hustle V2 Wns Running Shoes For Women",
     brand: "Puma",
     price: "Rs. 1400",
     size: [3, 4, 5, 6],
@@ -38,7 +38,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Men Lite Pro Clear Rush Sneakers",
+    name: "Men Lite Pro Clear Rush Sneakers",
     brand: "Skechers",
     price: "Rs. 4399",
     size: [7, 8, 9, 10],
