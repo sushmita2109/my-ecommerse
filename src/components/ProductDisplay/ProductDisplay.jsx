@@ -1,12 +1,9 @@
 import { useEffect } from "react";
 import { useProduct } from "../../context/ProductContext";
+import "./ProductDisplay.css";
 
 export const ProductDisplay = () => {
   const { state, dispatch } = useProduct();
-  console.log(
-    "🚀 ~ file: ProductDisplay.jsx:6 ~ ProductDisplay ~ state:",
-    state
-  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,8 +20,23 @@ export const ProductDisplay = () => {
       <h1>Product display</h1>
       {state?.allProducts?.map((product) => (
         <div key={product._id} className="productCard">
-          <img src={product.image} alt="productimage" width="350px" />
-          <h5>{product.name}</h5>
+          <div className="productitems">
+            <img
+              className="product-image"
+              src={product.image}
+              alt="productimage"
+              width="350px"
+            />
+            <div className="product-title ">
+              {product.brand}-{product.name}
+            </div>
+            <div className="shoeSize">
+              {product.size?.map((size, idx) => (
+                <div key={idx}>{size}</div>
+              ))}
+            </div>
+            <div className="product-price">{product.price}</div>
+          </div>
         </div>
       ))}
     </div>

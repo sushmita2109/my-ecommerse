@@ -1,0 +1,40 @@
+.productCard{
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+/* .productitems{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+} */
+
+.productitems{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial;
+    font-size: 3rem;
+    font-weight: bold;
+    background: white; 
+}
+
+.product-image{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+.product-title {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.product-price{
+    margin-top: 5px;
+  color: #888;
+}
