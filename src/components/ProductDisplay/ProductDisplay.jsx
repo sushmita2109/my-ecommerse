@@ -18,27 +18,31 @@ export const ProductDisplay = () => {
   return (
     <div>
       <h1>Product display</h1>
-      {state?.allProducts?.map((product) => (
-        <div key={product._id} className="productCard">
-          <div className="productitems">
-            <img
-              className="product-image"
-              src={product.image}
-              alt="productimage"
-              width="350px"
-            />
-            <div className="product-title ">
-              {product.brand}-{product.name}
+      <div className="productCard">
+        {state?.filteredProduct?.map((product) => (
+          <div key={product._id}>
+            <div className="productitems">
+              <img
+                className="product-image"
+                src={product.image}
+                alt="productimage"
+                width="350px"
+                height="250px"
+              />
+              <div className="product-title ">
+                {product.brand}-{product.name}
+              </div>
+              <div className="shoeSize">
+                {product.size?.map((size, idx) => (
+                  <div key={idx}>{size}</div>
+                ))}
+              </div>
+
+              <div className="product-price">{product.price}</div>
             </div>
-            <div className="shoeSize">
-              {product.size?.map((size, idx) => (
-                <div key={idx}>{size}</div>
-              ))}
-            </div>
-            <div className="product-price">{product.price}</div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

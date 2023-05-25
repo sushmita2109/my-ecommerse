@@ -50,4 +50,37 @@ export const products = [
       "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/n/v/z/-original-imagkjqmqdjymyg8.jpeg?q=70",
     categoryName: "Men Sneakers",
   },
+  {
+    _id: uuid(),
+    name: "RayRun M Running Shoes For Men",
+    brand: "Addidas",
+    price: "Rs 2199",
+    size: [7, 8, 9, 10],
+    rating: 3.2,
+    image:
+      "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/x/9/e/11-gc0908-11-adidas-cblack-stone-cougrn-original-imagzypzvkeevhun.jpeg?q=70",
+    categoryName: "Men Sneakers",
+  },
+  {
+    _id: uuid(),
+    name: "GlideEase W Running Shoes For Women ",
+    brand: "Addidas",
+    price: "Rs 1769",
+    size: [7, 8, 9, 10],
+    rating: 3.8,
+    image:
+      "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/y/r/v/-original-imagn9nbvvyc3vh4.jpeg?q=70",
+    categoryName: "Women Sneakers",
+  },
+  {
+    _id: uuid(),
+    name: "fast lane wn's Running Shoes For Women ",
+    brand: "Puma",
+    price: "Rs 2483",
+    size: [7, 8, 9, 10],
+    rating: 3.8,
+    image:
+      "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/n/6/x/6-378184-6-puma-black-sunset-pink-silver-original-imagztb7ukyghzdj.jpeg?q=70",
+    categoryName: "Women Sneakers",
+  },
 ];

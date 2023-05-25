@@ -3,6 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  background-color: aqua;
 }
 /* .productitems{
     display: flex;
@@ -18,9 +19,8 @@
     display: flex;
     flex-direction: column;
     font-family: Arial;
-    font-size: 3rem;
-    font-weight: bold;
-    background: white; 
+    background: peachpuff;
+    padding: 5px;
 }
 
 .product-image{
@@ -31,7 +31,7 @@
 
 .product-title {
     margin-top: 10px;
-    font-weight: bold;
+    
 }
 
 .product-price{

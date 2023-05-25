@@ -1,9 +1,24 @@
 import { useProduct } from "../../context/ProductContext";
+import { useEffect, useState } from "react";
 
 export const FilterProduct = () => {
-  const { state } = useProduct();
-  const category = [];
+  const { state, dispatch, brandedProduct } = useProduct();
+
   const brands = [];
+  useEffect(() => {
+    const GetData = async () => {
+      const response = await fetch("/api/categories").then((resp) =>
+        resp.json()
+      );
+
+      dispatch({
+        type: "CATEGORY_DATA",
+        data: response.categories,
+      });
+    };
+    GetData();
+  }, [dispatch]);
+
   return (
     <div>
       <h1>Filter Product</h1>
@@ -20,25 +35,24 @@ export const FilterProduct = () => {
         </div>
         <p>Categories</p>
         <div className="category">
-          {state.allProducts?.map((product) => {
-            if (!category.includes(product.categoryName)) {
-              category.push(product.categoryName);
-
-              return (
-                <label htmlFor="category" key={product._id}>
-                  <input
-                    type="checkbox"
-                    id="category"
-                    name="category"
-                    value={product.categoryName}
-                  />
-                  {product.categoryName}
-                </label>
-              );
-            } else {
-              return null;
-            }
-          })}
+          <label htmlFor="men">
+            <input
+              type="checkbox"
+              id="checkbox1"
+              name="checkbox1"
+              value="Men Sneakers"
+            />
+            Mens Sneakers
+          </label>
+          <label htmlFor="women">
+            <input
+              type="checkbox"
+              id="checkbox2"
+              name="checkbox2"
+              value="Women Sneakers"
+            />
+            Womens Sneakers
+          </label>
         </div>
         <p>Brands</p>
         <div className="brands">
@@ -52,6 +66,7 @@ export const FilterProduct = () => {
                     id="brand"
                     name="brand"
                     value={product.brand}
+                    onChange={() => brandedProduct(product.brand)}
                   />
                   {product.brand}
                 </label>
