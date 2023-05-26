@@ -5,7 +5,6 @@ import { Jumbotron } from "../components/Jumbotron/Jumbotron";
 export const HomePage = () => {
   return (
     <div>
-      <NavBar />
       <Jumbotron />
       <Category />
       <h1>HomePage</h1>

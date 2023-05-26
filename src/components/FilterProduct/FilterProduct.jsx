@@ -1,10 +1,10 @@
 import { useProduct } from "../../context/ProductContext";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const FilterProduct = () => {
-  const { state, dispatch, brandedProduct } = useProduct();
+  const { state, dispatch, ratingValue, sortMethod, priceRange } = useProduct();
+  const ratings = [4, 3, 2, 1];
 
-  const brands = [];
   useEffect(() => {
     const GetData = async () => {
       const response = await fetch("/api/categories").then((resp) =>
@@ -19,86 +19,102 @@ export const FilterProduct = () => {
     GetData();
   }, [dispatch]);
 
+  const range = state.allProducts?.reduce(
+    (acc, curr) => {
+      if (curr.price < acc.min) {
+        acc.min = curr.price;
+      }
+      if (curr.price > acc.max) {
+        acc.max = curr.price;
+      }
+      return acc;
+    },
+    {
+      min: state.allProducts[0]?.price,
+      max: state.allProducts[0]?.price,
+    }
+  );
+
   return (
-    <div>
-      <h1>Filter Product</h1>
+    <div className="filter">
+      <div className="filterheading">
+        <h1>Filter Product</h1>
+        <p onClick={() => dispatch({ type: "CLEAR_FILTERS" })}>Clear</p>
+      </div>
       <div>
         <p>Price</p>
         <div className="slider">
           <input
+            onChange={(e) =>
+              dispatch({ type: "PRICE_RANGE", payload: e.target.value })
+            }
             type="range"
-            min="1000"
-            max="8000"
-            className="slider"
-            id="myRange"
+            min={range.min}
+            max={range.max}
+            value={priceRange}
+            step="100"
           />
         </div>
         <p>Categories</p>
         <div className="category">
-          <label htmlFor="men">
-            <input
-              type="checkbox"
-              id="checkbox1"
-              name="checkbox1"
-              value="Men Sneakers"
-            />
-            Mens Sneakers
-          </label>
-          <label htmlFor="women">
-            <input
-              type="checkbox"
-              id="checkbox2"
-              name="checkbox2"
-              value="Women Sneakers"
-            />
-            Womens Sneakers
-          </label>
+          {state.categoryData?.map((category) => (
+            <label key={category._id} htmlFor="men">
+              <input
+                onChange={(e) =>
+                  dispatch({ type: "CATEGORIES", payload: e.target.value })
+                }
+                checked={state.selectedCategory.includes(category.categoryName)}
+                type="checkbox"
+                name="checkbox"
+                value={category.categoryName}
+              />
+              {category.categoryName}
+            </label>
+          ))}
         </div>
-        <p>Brands</p>
-        <div className="brands">
-          {state.allProducts?.map((product) => {
-            if (!brands.includes(product.brand)) {
-              brands.push(product.brand);
-              return (
-                <label htmlFor="brand" key={product._id}>
-                  <input
-                    type="checkbox"
-                    id="brand"
-                    name="brand"
-                    value={product.brand}
-                    onChange={() => brandedProduct(product.brand)}
-                  />
-                  {product.brand}
-                </label>
-              );
-            } else {
-              return null;
-            }
+        <div className="rattingcontainer">
+          <p>Rating</p>
+          {ratings.map((rating, i) => {
+            return (
+              <label key={i}>
+                <input
+                  onChange={(e) =>
+                    dispatch({ type: "RATING", payload: e.target.value })
+                  }
+                  checked={Number(ratingValue) === rating}
+                  type="radio"
+                  value={rating}
+                  name="rating"
+                />
+                {`${rating} Stars & above`}
+              </label>
+            );
           })}
-        </div>
-        <p>Rating</p>
-        <div className="ratting">
-          <label>
-            <input type="radio" value="4" />4 stars & above
-          </label>
-          <label>
-            <input type="radio" value="3" />3 stars & above
-          </label>
-          <label>
-            <input type="radio" value="2" />2 stars & above
-          </label>
-          <label>
-            <input type="radio" value="1" />1 stars & above
-          </label>
         </div>
         <p>Sort by</p>
         <div className="sort">
           <label>
-            <input type="radio" value="low" />
+            <input
+              type="radio"
+              value="ascending"
+              name="sort"
+              onChange={(e) =>
+                dispatch({ type: "SORT_BY_PRICE", payload: e.target.value })
+              }
+              checked={sortMethod === "ascending"}
+            />
             Price-Low to High
           </label>
           <label>
-            <input type="radio" value="high" />
+            <input
+              onChange={(e) =>
+                dispatch({ type: "SORT_BY_PRICE", payload: e.target.value })
+              }
+              checked={sortMethod === "descending"}
+              type="radio"
+              value="descending"
+              name="sort"
+            />
             Price-High to Low
           </label>
         </div>

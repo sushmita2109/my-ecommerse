@@ -4,7 +4,6 @@ export const reducer = (state, action) => {
       return {
         ...state,
         allProducts: action.data,
-        filteredProduct: action.data,
       };
     }
     case "CATEGORY_DATA": {
@@ -13,13 +12,41 @@ export const reducer = (state, action) => {
         categoryData: action.data,
       };
     }
-    case "Category_Products": {
+    case "SEARCH_VALUE":
+      return { ...state, searchValue: action.payload };
+    case "CLEAR_FILTERS":
       return {
         ...state,
-        filteredProduct: action.payload,
+        searchValue: "",
+        sortMethod: "",
+        selectedCategory: [],
+        ratingValue: "",
+        priceRange: "",
       };
-    }
+    case "PRICE_RANGE":
+      return { ...state, priceRange: action.payload };
+    case "CATEGORIES": {
+      let newCategory = [...state.selectedCategory];
+      const selectedCategory = action.payload;
 
+      const categoryFound = newCategory.find(
+        (category) => category === selectedCategory
+      );
+
+      if (!categoryFound) {
+        newCategory.push(selectedCategory);
+      } else {
+        newCategory = newCategory.filter(
+          (category) => category !== selectedCategory
+        );
+      }
+
+      return { ...state, selectedCategory: newCategory };
+    }
+    case "RATING":
+      return { ...state, ratingValue: action.payload };
+    case "SORT_BY_PRICE":
+      return { ...state, sortMethod: action.payload };
     default: {
       return state;
     }

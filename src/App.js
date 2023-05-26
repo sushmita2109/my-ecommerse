@@ -6,10 +6,12 @@ import { Mockman } from "./pages/Mockman";
 import { Login } from "./components/Login/Login";
 import { SignUp } from "./components/SignUp/SignUp";
 import { Product } from "./pages/Product";
+import { NavBar } from "./components/NavBar/NavBar";
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/mockman" element={<Mockman />} />

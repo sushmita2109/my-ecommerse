@@ -3,7 +3,7 @@ import { useProduct } from "../../context/ProductContext";
 import "./ProductDisplay.css";
 
 export const ProductDisplay = () => {
-  const { state, dispatch } = useProduct();
+  const { dispatch, filteredProducts } = useProduct();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +19,7 @@ export const ProductDisplay = () => {
     <div>
       <h1>Product display</h1>
       <div className="productCard">
-        {state?.filteredProduct?.map((product) => (
+        {filteredProducts?.map((product) => (
           <div key={product._id}>
             <div className="productitems">
               <img
