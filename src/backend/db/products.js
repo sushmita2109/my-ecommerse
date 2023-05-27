@@ -10,7 +10,7 @@ export const products = [
     _id: uuid(),
     name: "Black Solid Softride Pro Coast Training Shoes",
     brand: "Puma",
-    price: "Rs. 5199",
+    price: "5199",
     size: [3, 4, 5, 6],
     rating: 4.5,
     image:
@@ -21,7 +21,7 @@ export const products = [
     _id: uuid(),
     name: "Boys Striped LED Slip-On Sneakers",
     brand: "Skechers",
-    price: "Rs. 4199",
+    price: "4199",
     size: [6, 7, 8, 10],
     rating: 3.5,
     image:
@@ -32,7 +32,7 @@ export const products = [
     _id: uuid(),
     name: "Hustle V2 Wns Running Shoes For Women",
     brand: "Puma",
-    price: "Rs. 1400",
+    price: "1400",
     size: [3, 4, 5, 6],
     rating: 2.5,
     image:
@@ -43,7 +43,7 @@ export const products = [
     _id: uuid(),
     name: "Men Lite Pro Clear Rush Sneakers",
     brand: "Skechers",
-    price: "Rs. 4399",
+    price: "4399",
     size: [7, 8, 9, 10],
     rating: 3,
     image:
@@ -54,7 +54,7 @@ export const products = [
     _id: uuid(),
     name: "RayRun M Running Shoes For Men",
     brand: "Addidas",
-    price: "Rs 2199",
+    price: "2199",
     size: [7, 8, 9, 10],
     rating: 3.2,
     image:
@@ -65,7 +65,7 @@ export const products = [
     _id: uuid(),
     name: "GlideEase W Running Shoes For Women ",
     brand: "Addidas",
-    price: "Rs 1769",
+    price: "1769",
     size: [7, 8, 9, 10],
     rating: 3.8,
     image:
@@ -76,7 +76,7 @@ export const products = [
     _id: uuid(),
     name: "fast lane wn's Running Shoes For Women ",
     brand: "Puma",
-    price: "Rs 2483",
+    price: "2483",
     size: [7, 8, 9, 10],
     rating: 3.8,
     image:
