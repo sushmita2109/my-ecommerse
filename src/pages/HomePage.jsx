@@ -1,4 +1,3 @@
-import { NavBar } from "../components/NavBar/NavBar";
 import { Category } from "../components/Category/Category";
 import { Jumbotron } from "../components/Jumbotron/Jumbotron";
 

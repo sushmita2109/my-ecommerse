@@ -32,7 +32,7 @@ export const ProductProvider = ({ children }) => {
 
     if (priceRange) {
       filteredData = filteredData.filter(
-        ({ discountedPrice }) => discountedPrice >= Number(priceRange)
+        ({ price }) => price >= Number(priceRange)
       );
     }
 

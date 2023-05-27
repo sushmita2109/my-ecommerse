@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { useProduct } from "../../context/ProductContext";
 import "./ProductDisplay.css";
+import { useNavigate } from "react-router-dom";
 
 export const ProductDisplay = () => {
   const { dispatch, filteredProducts } = useProduct();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +19,7 @@ export const ProductDisplay = () => {
     fetchData();
   }, [dispatch]);
   return (
-    <div>
+    <>
       <h1>Product display</h1>
       <div className="productCard">
         {filteredProducts?.map((product) => (
@@ -39,10 +42,16 @@ export const ProductDisplay = () => {
               </div>
 
               <div className="product-price">{product.price}</div>
+              <div className="buttons-div">
+                <button className="cart-btn" onClick={() => navigate("/cart")}>
+                  Add to cart
+                </button>
+                <button className="wishlist-btn">Add to wishlist</button>
+              </div>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };

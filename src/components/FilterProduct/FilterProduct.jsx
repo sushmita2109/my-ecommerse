@@ -1,8 +1,10 @@
 import { useProduct } from "../../context/ProductContext";
 import { useEffect } from "react";
+import "./FilterProduct.css";
 
 export const FilterProduct = () => {
   const { state, dispatch, ratingValue, sortMethod, priceRange } = useProduct();
+
   const ratings = [4, 3, 2, 1];
 
   useEffect(() => {
@@ -39,7 +41,12 @@ export const FilterProduct = () => {
     <div className="filter">
       <div className="filterheading">
         <h1>Filter Product</h1>
-        <p onClick={() => dispatch({ type: "CLEAR_FILTERS" })}>Clear</p>
+        <p
+          className="clearData"
+          onClick={() => dispatch({ type: "CLEAR_FILTERS" })}
+        >
+          Clear
+        </p>
       </div>
       <div>
         <p>Price</p>
