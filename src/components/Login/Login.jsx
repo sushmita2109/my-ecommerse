@@ -38,7 +38,7 @@ export const Login = () => {
           onChange={(e) =>
             authDispatch({ type: "SET_PASSWORD", payload: e.target.value })
           }
-          value={authDispatch.password}
+          value={authState.password}
         />
       </label>
       <Button className="loginBtn" onClick={loginUser}>

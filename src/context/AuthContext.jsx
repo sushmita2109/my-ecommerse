@@ -46,21 +46,26 @@ export const AuthProvider = ({ children }) => {
       const res = await fetch("/api/auth/login", requestOptions);
       const data = await res.json();
       console.log("data", data);
-      if (data.status === 200) {
-        toast("Login Succesfully");
-        setLoggedIn(true);
-        localStorage.setItem("Code", data.encodedToken);
-        console.log(authState.location);
-        navigate(authState.location);
+      if (data.errors) {
+        throw data.errors;
       }
+      toast("Login Succesfully");
+      setLoggedIn(true);
+      localStorage.setItem("Code", data.encodedToken);
+      console.log(authState.location);
+      navigate(authState.location);
     } catch (e) {
-      console.error(e);
+      toast.error(e[0]);
     }
   };
 
   const signupHandler = () => {};
 
   const validateLogin = () => {
+    console.log(
+      "🚀 ~ file: AuthContext.jsx:67 ~ validateLogin ~ authState.password:",
+      authState
+    );
     if (
       authState.email.trim().length <= 0 &&
       authState.password.trim().length <= 0
@@ -71,6 +76,7 @@ export const AuthProvider = ({ children }) => {
     } else if (authState.password.trim().length <= 0) {
       return toast.error("Password cannot be empty");
     }
+
     userAuth = "login";
     setUserInfo({ email: authState.email, password: authState.password });
   };

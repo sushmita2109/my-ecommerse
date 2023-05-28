@@ -12,7 +12,10 @@ export const NavBar = () => {
   return (
     <nav>
       <div className="title">
-        <p>SneakerShop</p>
+        <Link to="/">
+          {" "}
+          <p>SneakerShop</p>
+        </Link>
       </div>
 
       <div className="search">
@@ -32,8 +35,13 @@ export const NavBar = () => {
         <Link className="actionLink" to="/login">
           Login
         </Link>
-        <FavoriteBorderIcon />
-        <ShoppingCartIcon />
+        <Link to="/wishlist">
+          <FavoriteBorderIcon />
+        </Link>
+        <Link to="/cart">
+          <ShoppingCartIcon />
+        </Link>
+
         <p>cart</p>
       </div>
     </nav>

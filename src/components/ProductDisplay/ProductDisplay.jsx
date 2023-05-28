@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useProduct } from "../../context/ProductContext";
 import "./ProductDisplay.css";
-import { useNavigate } from "react-router-dom";
+
+import { useCart } from "../../context/CartContext";
 
 export const ProductDisplay = () => {
   const { dispatch, filteredProducts } = useProduct();
-
-  const navigate = useNavigate();
+  const { addItemToCartHandler } = useCart();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +43,10 @@ export const ProductDisplay = () => {
 
               <div className="product-price">{product.price}</div>
               <div className="buttons-div">
-                <button className="cart-btn" onClick={() => navigate("/cart")}>
+                <button
+                  className="cart-btn"
+                  onClick={() => addItemToCartHandler(product)}
+                >
                   Add to cart
                 </button>
                 <button className="wishlist-btn">Add to wishlist</button>
