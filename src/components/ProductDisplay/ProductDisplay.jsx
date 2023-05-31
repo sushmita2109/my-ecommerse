@@ -3,10 +3,12 @@ import { useProduct } from "../../context/ProductContext";
 import "./ProductDisplay.css";
 
 import { useCart } from "../../context/CartContext";
+import { useWishlist } from "../../context/WishlistContext";
 
 export const ProductDisplay = () => {
   const { dispatch, filteredProducts } = useProduct();
   const { addItemToCartHandler } = useCart();
+  const { addToWishlist } = useWishlist();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +51,12 @@ export const ProductDisplay = () => {
                 >
                   Add to cart
                 </button>
-                <button className="wishlist-btn">Add to wishlist</button>
+                <button
+                  className="wishlist-btn"
+                  onClick={() => addToWishlist(product)}
+                >
+                  Add to wishlist
+                </button>
               </div>
             </div>
           </div>

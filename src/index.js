@@ -7,6 +7,7 @@ import { createRoot } from "react-dom/client";
 import { ProductProvider } from "./context/ProductContext";
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
+import { WishlistProvider } from "./context/WishlistContext";
 
 // Call make Server
 makeServer();
@@ -19,7 +20,9 @@ root.render(
       <ProductProvider>
         <AuthProvider>
           <CartProvider>
-            <App />
+            <WishlistProvider>
+              <App />
+            </WishlistProvider>
           </CartProvider>
         </AuthProvider>
       </ProductProvider>

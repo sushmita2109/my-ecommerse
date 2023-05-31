@@ -1,4 +1,4 @@
-.cartcard{
+.wishlistcard{
     display: flex;
     padding: 8px;
     border: 2px solid red;
@@ -8,9 +8,4 @@
     width: 900px;
     margin: 5px;
     
-}
-
-.cartqty{
-    display: flex;
-     height: auto;
 }

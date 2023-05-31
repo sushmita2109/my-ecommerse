@@ -11,7 +11,7 @@ import { Product } from "./pages/Product";
 import { NavBar } from "./components/NavBar/NavBar";
 import { RequireAuth } from "./components/RequireAuth/RequireAuth";
 import { Cart } from "./components/Cart/Cart";
-import { Whishlist } from "./components/Wishlist/Wishlist";
+import { WishList } from "./pages/Wishlist";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
           path="/wishlist"
           element={
             <RequireAuth>
-              <Whishlist />
+              <WishList />
             </RequireAuth>
           }
         />
