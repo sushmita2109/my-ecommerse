@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useProduct } from "../../context/ProductContext";
 import "./ProductDisplay.css";
 
+import Card from "@mui/material/Card";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 
@@ -26,24 +27,45 @@ export const ProductDisplay = () => {
       <div className="productCard">
         {filteredProducts?.map((product) => (
           <div key={product._id}>
-            <div className="productitems">
+            {/* <div className="productitems"> */}
+            <Card
+              sx={{
+                height: "500px",
+                width: "350px",
+                margin: "4px",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
               <img
                 className="product-image"
                 src={product.image}
                 alt="productimage"
                 width="350px"
-                height="250px"
+                height="350px"
               />
-              <div className="product-title ">
+              <div className="product-title">
                 {product.brand}-{product.name}
               </div>
-              <div className="shoeSize">
-                {product.size?.map((size, idx) => (
-                  <div key={idx}>{size}</div>
-                ))}
-              </div>
+              {
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  Sizes:{" "}
+                  {
+                    <div className="shoeSize">
+                      {product.size?.map((size, idx) => (
+                        <div key={idx}>{size}</div>
+                      ))}
+                    </div>
+                  }
+                </div>
+              }
 
-              <div className="product-price">{product.price}</div>
+              <div className="product-price"> ₹ {product.price}</div>
               <div className="buttons-div">
                 <button
                   className="cart-btn"
@@ -58,7 +80,8 @@ export const ProductDisplay = () => {
                   Add to wishlist
                 </button>
               </div>
-            </div>
+            </Card>
+            {/* </div> */}
           </div>
         ))}
       </div>

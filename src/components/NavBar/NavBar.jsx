@@ -6,9 +6,15 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./NavBar.css";
 import { useProduct } from "../../context/ProductContext";
+import Badge from "@material-ui/core/Badge";
+import { useWishlist } from "../../context/WishlistContext";
+import { useCart } from "../../context/CartContext";
 
 export const NavBar = () => {
   const { dispatch } = useProduct();
+  const { wishlistState } = useWishlist();
+  const { cartState } = useCart();
+
   return (
     <nav>
       <div className="title">
@@ -36,13 +42,22 @@ export const NavBar = () => {
           Login
         </Link>
         <Link to="/wishlist">
-          <FavoriteBorderIcon />
+          <Badge
+            badgeContent={wishlistState.wishlistProduct.length}
+            style={{ color: "white", fontWeight: "bold" }}
+          >
+            <FavoriteBorderIcon style={{ color: "white" }} />
+          </Badge>
         </Link>
         <Link to="/cart">
-          <ShoppingCartIcon />
+          <Badge
+            badgeContent={cartState.cartProduct.length}
+            color="secondary"
+            // style={{ color: "white", fontWeight: "bold" }}
+          >
+            <ShoppingCartIcon style={{ color: "white" }} />
+          </Badge>
         </Link>
-
-        <p>cart</p>
       </div>
     </nav>
   );

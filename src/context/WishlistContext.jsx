@@ -13,6 +13,30 @@ export const WishlistProvider = ({ children }) => {
     wishlistReducer,
     initialState
   );
+  const getWishlist = async () => {
+    try {
+      const response = await fetch("/api/user/wishlist", {
+        method: "GET",
+        headers: {
+          authorization: token,
+        },
+      });
+      const data = await response.json();
+      console.log(
+        "🚀 ~ file: WishlistContext.jsx:25 ~ getWishlist ~ data:",
+        data
+      );
+      wishlistDispatch({
+        type: "ADD_WISHLIST_PRODUCT",
+        payload: data.wishlist,
+      });
+    } catch (error) {
+      console.log(
+        "🚀 ~ file: WishlistContext.jsx:30 ~ getWishlist ~ error:",
+        error
+      );
+    }
+  };
   const addToWishlist = async (product) => {
     try {
       const response = await fetch("/api/user/wishlist", {
@@ -59,7 +83,13 @@ export const WishlistProvider = ({ children }) => {
 
   return (
     <WishlistContext.Provider
-      value={{ wishlistDispatch, wishlistState, addToWishlist, removeProduct }}
+      value={{
+        wishlistDispatch,
+        wishlistState,
+        addToWishlist,
+        removeProduct,
+        getWishlist,
+      }}
     >
       {children}
     </WishlistContext.Provider>

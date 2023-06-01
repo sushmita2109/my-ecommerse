@@ -35,7 +35,7 @@ export const CartProvider = ({ children }) => {
       }).then((res) => res.json());
       cartDispatch({ type: "ADD_CART_PRODUCT", payload: response.cart });
 
-      toast.success("Item added to cart");
+      toast.success(`${product.name} added to cart`);
     } else {
       toast.error("Please Login ");
     }
@@ -57,7 +57,7 @@ export const CartProvider = ({ children }) => {
       });
       const data = await response.json();
       setLoadingQty(false);
-      cartDispatch({ type: "DECREMENT", payload: data });
+      cartDispatch({ type: "DECREMENT", payload: data.cart });
     } catch (e) {
       console.log(e);
     }
@@ -79,7 +79,7 @@ export const CartProvider = ({ children }) => {
       });
       const response = await data.json();
       setLoadingQty(false);
-      cartDispatch({ type: "INCREMENT", payload: response });
+      cartDispatch({ type: "INCREMENT", payload: response.cart });
     } catch (e) {
       console.log(e);
     }
@@ -94,7 +94,7 @@ export const CartProvider = ({ children }) => {
         },
       });
       const res = await response.json();
-      cartDispatch({ type: "REMOVE", payload: res });
+      cartDispatch({ type: "REMOVE", payload: res.cart });
     } catch (e) {
       console.log(e);
     }

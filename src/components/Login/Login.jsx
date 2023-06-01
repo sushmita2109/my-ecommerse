@@ -1,5 +1,5 @@
 import Input from "@mui/material/Input";
-import { Button } from "@mui/material";
+import { Button, Card } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import "./Login.css";
 import { useAuth } from "../../context/AuthContext";
@@ -17,14 +17,19 @@ export const Login = () => {
     validateLogin();
   };
 
+  const handleguestLogin = () => {
+    authDispatch({ type: "SET_EMAIL", payload: "adarshbalika@gmail.com" });
+    authDispatch({ type: "SET_PASSWORD", payload: "adarshbalika" });
+  };
+
   return (
     <div className="loginPage">
       <h3>Login</h3>
       <label className="inputLogin">
         Email
         <Input
+          type="email"
           placeholder="Enter your email"
-          type="text"
           onChange={(e) =>
             authDispatch({ type: "SET_EMAIL", payload: e.target.value })
           }
@@ -34,6 +39,7 @@ export const Login = () => {
       <label className="inputLogin">
         Password
         <Input
+          type="password"
           placeholder="Enter password "
           onChange={(e) =>
             authDispatch({ type: "SET_PASSWORD", payload: e.target.value })
@@ -44,9 +50,9 @@ export const Login = () => {
       <Button className="loginBtn" onClick={loginUser}>
         Login
       </Button>
-      <Link>
-        <p>Enter test credentials</p>
-      </Link>
+
+      <p onClick={handleguestLogin}>Enter test credentials</p>
+
       <Link className="signupLink" to="/signup">
         create a new account
       </Link>

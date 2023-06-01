@@ -1,5 +1,5 @@
 nav{
-    background-color: red;
+    background-color: rgba(17, 85, 187, 0.841);
     display: flex;
     justify-content: space-between;
     height: 10vh;
@@ -17,11 +17,17 @@ nav{
   
 }
 
+.actions{
+
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;    
+}
+
+
 .actionLink{
     color: white;
     text-decoration: none;
 }
 
-.actions p{
-    display: inline-block;
-}

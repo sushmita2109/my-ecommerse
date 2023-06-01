@@ -9,8 +9,10 @@
     margin: 5px;
     
 }
-
+.item-image{
+    aspect-ratio: 1/1;
+  object-fit: cover;
+}
 .cartqty{
     display: flex;
-     height: auto;
 }
