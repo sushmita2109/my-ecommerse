@@ -6,6 +6,12 @@ export const wishlistReducer = (state, action) => {
         wishlistProduct: action.payload,
       };
     }
+    case "REMOVE_WISHLIST": {
+      return {
+        ...state,
+        wishlistProduct: action.payload,
+      };
+    }
     default: {
       return state;
     }

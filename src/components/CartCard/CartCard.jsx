@@ -1,9 +1,26 @@
 import { useCart } from "../../context/CartContext";
+import { useWishlist } from "../../context/WishlistContext";
 import "./CartCard.css";
 import ReactLoading from "react-loading";
 
 export const CartCard = ({ cart }) => {
   const { increment, decrement, removeProduct, loadingQty } = useCart();
+
+  const { wishlistState, wishlistDispatch } = useWishlist();
+
+  const moveToWishlist = (cart) => {
+    const isPresentItem = wishlistState.wishlistProduct?.find(
+      (wishlist) => wishlist._id === cart._id
+    );
+    if (!isPresentItem) {
+      wishlistDispatch({
+        type: "ADD_WISHLIST_PRODUCT",
+        payload: cart,
+      });
+    } else {
+    }
+  };
+
   return (
     <div>
       <div className="cartcard">
@@ -28,7 +45,7 @@ export const CartCard = ({ cart }) => {
             )}
             <button onClick={() => decrement(cart)}>-</button>
           </div>
-          <button>Move to wishlist</button>
+          <button onClick={() => moveToWishlist(cart)}>Move to wishlist</button>
           <button onClick={() => removeProduct(cart)}>Remove</button>
         </div>
       </div>
