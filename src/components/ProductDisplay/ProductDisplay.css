@@ -1,8 +1,9 @@
 .productCard{
-    display: grid;
-  grid-template-columns: repeat(3, 1fr);
+    margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(50px, auto);
   background-color: aqua;
 }
 /* .productitems{
@@ -24,16 +25,23 @@
 }
 
 .product-image{
-    width: 100%;
-    max-width: 200px;
-    height: auto;
+    
+    aspect-ratio: 16/9;
+    object-fit:scale-down;
 }
 
 .product-title {
     margin-top: 10px;
     
 }
-
+.shoeSize{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    width: 60px;
+    align-items: center;
+    justify-content: space-between;
+}
 .product-price{
     margin-top: 5px;
   color: #888;

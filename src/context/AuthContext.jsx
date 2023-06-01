@@ -62,10 +62,6 @@ export const AuthProvider = ({ children }) => {
   const signupHandler = () => {};
 
   const validateLogin = () => {
-    console.log(
-      "🚀 ~ file: AuthContext.jsx:67 ~ validateLogin ~ authState.password:",
-      authState
-    );
     if (
       authState.email.trim().length <= 0 &&
       authState.password.trim().length <= 0
