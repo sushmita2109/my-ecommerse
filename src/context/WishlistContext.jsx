@@ -24,7 +24,7 @@ export const WishlistProvider = ({ children }) => {
       });
       const data = await response.json();
       console.log(
-        "🚀 ~ file: WishlistContext.jsx:26 ~ addToWishlist ~ data:",
+        "🚀 ~ file: WishlistContext.jsx:26 ~ addToWishlist ~ data: ",
         data
       );
 
@@ -37,9 +37,29 @@ export const WishlistProvider = ({ children }) => {
     }
   };
 
+  const removeProduct = async (wishlist) => {
+    try {
+      const response = await fetch(`/api/user/wishlist/${wishlist._id}`, {
+        method: "DELETE",
+        headers: {
+          authorization: token,
+        },
+      });
+      const data = await response.json();
+      console.log(
+        "🚀 ~ file: WishlistContext.jsx:49 ~ removeProduct ~ data:",
+        data
+      );
+
+      wishlistDispatch({ type: "REMOVE_WISHLIST", payload: data.wishlist });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <WishlistContext.Provider
-      value={{ wishlistDispatch, wishlistState, addToWishlist }}
+      value={{ wishlistDispatch, wishlistState, addToWishlist, removeProduct }}
     >
       {children}
     </WishlistContext.Provider>

@@ -1,23 +1,30 @@
+import { useNavigate } from "react-router-dom";
+import { cartReducer } from "../../Reducers/CartReducer";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 import "./CartCard.css";
 import ReactLoading from "react-loading";
+import { useProduct } from "../../context/ProductContext";
 
 export const CartCard = ({ cart }) => {
-  const { increment, decrement, removeProduct, loadingQty } = useCart();
-
+  const { increment, decrement, removeProduct, loadingQty, cartDispatch } =
+    useCart();
+  const { state } = useProduct();
   const { wishlistState, wishlistDispatch } = useWishlist();
+  const navigate = useNavigate();
 
   const moveToWishlist = (cart) => {
     const isPresentItem = wishlistState.wishlistProduct?.find(
-      (wishlist) => wishlist._id === cart._id
+      (wishlist) => wishlist._id === state.allProducts._id
     );
     if (!isPresentItem) {
+      cartDispatch({ type: "REMOVE", payload: cart });
       wishlistDispatch({
         type: "ADD_WISHLIST_PRODUCT",
         payload: cart,
       });
     } else {
+      navigate("/wishlist");
     }
   };
 

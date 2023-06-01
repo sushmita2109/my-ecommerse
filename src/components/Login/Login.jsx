@@ -44,6 +44,9 @@ export const Login = () => {
       <Button className="loginBtn" onClick={loginUser}>
         Login
       </Button>
+      <Link>
+        <p>Enter test credentials</p>
+      </Link>
       <Link className="signupLink" to="/signup">
         create a new account
       </Link>
