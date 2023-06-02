@@ -1,6 +1,7 @@
 import { useProduct } from "../../context/ProductContext";
 import { useEffect } from "react";
 import "./FilterProduct.css";
+import { Card } from "@mui/material";
 
 export const FilterProduct = () => {
   const { state, dispatch, ratingValue, sortMethod, priceRange } = useProduct();
@@ -38,9 +39,9 @@ export const FilterProduct = () => {
   );
 
   return (
-    <div className="filter">
+    <Card className="filter">
       <div className="filterheading">
-        <h1>Filter Product</h1>
+        <p>Filter Product</p>
         <p
           className="clearData"
           onClick={() => dispatch({ type: "CLEAR_FILTERS" })}
@@ -126,6 +127,6 @@ export const FilterProduct = () => {
           </label>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };

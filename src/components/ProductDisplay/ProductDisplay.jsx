@@ -23,7 +23,6 @@ export const ProductDisplay = () => {
   }, [dispatch]);
   return (
     <>
-      <h1>Product display</h1>
       <div className="productCard">
         {filteredProducts?.map((product) => (
           <div key={product._id}>
