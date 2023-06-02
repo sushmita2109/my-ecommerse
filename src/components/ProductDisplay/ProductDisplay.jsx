@@ -64,8 +64,20 @@ export const ProductDisplay = () => {
                   }
                 </div>
               }
-
-              <div className="product-price"> ₹ {product.price}</div>
+              <div className="prices">
+                {product.isDiscount && (
+                  <div className="discountedPrice">
+                    ₹ {product.discountedPrice}
+                  </div>
+                )}
+                <div
+                  className={
+                    product.isDiscount ? "product-price" : "productprice"
+                  }
+                >
+                  ₹ {product.price}
+                </div>
+              </div>
               <div className="buttons-div">
                 <button
                   className="cart-btn"

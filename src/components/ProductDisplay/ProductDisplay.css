@@ -1,5 +1,5 @@
-.productCard{
-    margin: 20px;
+.productCard {
+  margin: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
@@ -14,41 +14,51 @@
     
 } */
 
-.productitems{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    font-family: Arial;
-    background: peachpuff;
-    padding: 5px;
+.productitems {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial;
+  background: peachpuff;
+  padding: 5px;
 }
 
-.product-image{
-    
-    aspect-ratio: 16/9;
-    object-fit:scale-down;
+.product-image {
+  aspect-ratio: 16/9;
+  object-fit: scale-down;
 }
 
 .product-title {
-    margin-top: 10px;
-    
+  margin-top: 10px;
 }
-.shoeSize{
-    display: flex;
-    flex-direction: row;
-    margin-top: 5px;
-    width: 60px;
-    align-items: center;
-    justify-content: space-between;
+.shoeSize {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  width: 60px;
+  align-items: center;
+  justify-content: space-between;
 }
-.product-price{
-    margin-top: 5px;
+.prices {
+  display: flex;
+  padding: 6px;
+  gap: 5px;
+}
+.productprice {
+  margin-top: 5px;
+  color: black;
+}
+.product-price {
+  margin-top: 5px;
   color: #888;
+  text-decoration: line-through;
+}
+.discountedPrice {
+  margin-top: 5px;
+  color: black;
 }
 
-.buttons-div{
-    padding: 4px;
-   
-   
+.buttons-div {
+  padding: 4px;
 }
