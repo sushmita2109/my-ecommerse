@@ -47,6 +47,8 @@ export const reducer = (state, action) => {
       return { ...state, ratingValue: action.payload };
     case "SORT_BY_PRICE":
       return { ...state, sortMethod: action.payload };
+    case "SET_USER_DATA":
+      return { ...state, user: action.payload };
     default: {
       return state;
     }

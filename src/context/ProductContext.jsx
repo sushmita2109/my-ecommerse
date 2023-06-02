@@ -11,6 +11,7 @@ const initialState = {
   sortMethod: "",
   ratingValue: "",
   priceRange: "",
+  user: {},
 };
 
 export const ProductProvider = ({ children }) => {

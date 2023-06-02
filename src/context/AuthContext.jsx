@@ -8,6 +8,7 @@ import {
 import { authReducer } from "../Reducers/AuthReducer";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useProduct } from "./ProductContext";
 
 export const AuthContext = createContext();
 let userAuth = "";
@@ -23,12 +24,10 @@ const intialState = {
 
 export const AuthProvider = ({ children }) => {
   const [authState, authDispatch] = useReducer(authReducer, intialState);
-  const [userInfo, setUserInfo] = useState({
-    email: "",
-    password: "",
-  });
+  const [userInfo, setUserInfo] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const { dispatch } = useProduct();
 
   useEffect(() => {
     if (userInfo) {
@@ -59,7 +58,39 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signupHandler = () => {};
+  const signupHandler = async () => {
+    try {
+      const res = await fetch("/api/auth/signup", requestOptions);
+      const data = await res.json();
+
+      toast("SignUp Succesfully");
+      setLoggedIn(true);
+      localStorage.setItem("token", data.encodedToken);
+      localStorage.setItem("user", JSON.stringify(data.createdUser));
+      dispatch({ type: "SET_USER_DATA", payload: data.createdUser });
+      navigate(authState.location);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const validateSignUp = () => {
+    if (
+      authState.email.trim().length <= 0 ||
+      authState.password.trim().length <= 0 ||
+      authState.firstName.trim().length <= 0 ||
+      authState.lastName.trim().length <= 0
+    ) {
+      return toast.error("All details are required");
+    }
+    userAuth = "signup";
+    setUserInfo({
+      email: authState.email,
+      password: authState.password,
+      firstName: authState.firstName,
+      lastName: authState.lastName,
+    });
+  };
 
   const validateLogin = () => {
     if (
@@ -78,7 +109,13 @@ export const AuthProvider = ({ children }) => {
   };
   return (
     <AuthContext.Provider
-      value={{ authDispatch, authState, validateLogin, loggedIn }}
+      value={{
+        authDispatch,
+        authState,
+        validateLogin,
+        loggedIn,
+        validateSignUp,
+      }}
     >
       {children}
     </AuthContext.Provider>

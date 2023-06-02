@@ -18,6 +18,10 @@ export const authReducer = (state, action) => {
         password: action.payload,
       };
     }
+    case "SET_FIRSTNAME":
+      return { ...state, firstName: action.payload };
+    case "SET_LASTNAME":
+      return { ...state, lastName: action.payload };
 
     default:
       return state;
