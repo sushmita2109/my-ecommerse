@@ -100,6 +100,19 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const totalPrice = cartState.cartProduct.reduce(
+    (total, { discountedPrice, qty }) => total + discountedPrice * qty,
+    0
+  );
+
+  const totalDiscountedPrice = cartState.cartProduct.reduce(
+    (acc, { discountedPrice, qty, price }) =>
+      acc + (price - discountedPrice) * qty,
+    0
+  );
+
+  const deliveryCharge = cartState.cartProduct.length >= 3 ? 0 : 100;
+
   return (
     <CartContext.Provider
       value={{
@@ -110,6 +123,9 @@ export const CartProvider = ({ children }) => {
         increment,
         removeProduct,
         loadingQty,
+        totalPrice,
+        totalDiscountedPrice,
+        deliveryCharge,
       }}
     >
       {children}
