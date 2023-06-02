@@ -57,7 +57,6 @@ export const CartProvider = ({ children }) => {
       });
       const data = await response.json();
       setLoadingQty(false);
-      cartDispatch({ type: "DECREMENT", payload: data.cart });
     } catch (e) {
       console.log(e);
     }
@@ -101,13 +100,14 @@ export const CartProvider = ({ children }) => {
   };
 
   const totalPrice = cartState.cartProduct.reduce(
-    (total, { discountedPrice, qty }) => total + discountedPrice * qty,
+    (total, { isDiscount, price, discountedPrice, qty }) =>
+      isDiscount ? total + discountedPrice * qty : total + price * qty,
     0
   );
 
   const totalDiscountedPrice = cartState.cartProduct.reduce(
-    (acc, { discountedPrice, qty, price }) =>
-      acc + (price - discountedPrice) * qty,
+    (acc, { discountedPrice, qty, price, isDiscount }) =>
+      isDiscount ? acc + (price - discountedPrice) * qty : 0,
     0
   );
 
