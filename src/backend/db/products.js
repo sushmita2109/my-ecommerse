@@ -1,3 +1,4 @@
+import { faL } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuid } from "uuid";
 
 /**
@@ -16,6 +17,10 @@ export const products = [
     image:
       "https://rukminim1.flixcart.com/image/832/832/l4d2ljk0/shoe/j/p/5/-original-imagf9vhhsmzfjxp.jpeg?q=70",
     categoryName: "Women Sneakers",
+    isDiscount: true,
+    discountedPrice: "4999",
+    isBestSeller: true,
+    inStock: [true, false, false, true],
   },
   {
     _id: uuid(),
@@ -27,6 +32,10 @@ export const products = [
     image:
       "https://rukminim1.flixcart.com/image/832/832/kq5iykw0/shoe/s/n/4/6-232211-7-skechers-nvy-original-imag48gdatsnvz99.jpeg?q=70",
     categoryName: "Men Sneakers",
+    isDiscount: false,
+    discountedPrice: "",
+    isBestSeller: false,
+    inStock: [true, false, false, false],
   },
   {
     _id: uuid(),
@@ -38,6 +47,10 @@ export const products = [
     image:
       "https://rukminim1.flixcart.com/image/832/832/l4rd0280/shoe/m/a/q/-original-imagfh7qzmjjcftj.jpeg?q=70",
     categoryName: "Women Sneakers",
+    isDiscount: true,
+    discountedPrice: "1399",
+    isBestSeller: true,
+    inStock: [false, false, false, true],
   },
   {
     _id: uuid(),
@@ -49,6 +62,10 @@ export const products = [
     image:
       "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/n/v/z/-original-imagkjqmqdjymyg8.jpeg?q=70",
     categoryName: "Men Sneakers",
+    isDiscount: true,
+    discountedPrice: "3999",
+    isBestSeller: true,
+    inStock: [true, true, false, true],
   },
   {
     _id: uuid(),
@@ -60,6 +77,10 @@ export const products = [
     image:
       "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/x/9/e/11-gc0908-11-adidas-cblack-stone-cougrn-original-imagzypzvkeevhun.jpeg?q=70",
     categoryName: "Men Sneakers",
+    isDiscount: true,
+    discountedPrice: "2099",
+    isBestSeller: false,
+    inStock: [true, false, false, true],
   },
   {
     _id: uuid(),
@@ -71,6 +92,10 @@ export const products = [
     image:
       "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/y/r/v/-original-imagn9nbvvyc3vh4.jpeg?q=70",
     categoryName: "Women Sneakers",
+    isDiscount: false,
+    discountedPrice: "",
+    isBestSeller: false,
+    inStock: [true, false, true, true],
   },
   {
     _id: uuid(),
@@ -82,5 +107,9 @@ export const products = [
     image:
       "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/n/6/x/6-378184-6-puma-black-sunset-pink-silver-original-imagztb7ukyghzdj.jpeg?q=70",
     categoryName: "Women Sneakers",
+    isDiscount: false,
+    discountedPrice: "",
+    isBestSeller: false,
+    inStock: [true, true, false, true],
   },
 ];
