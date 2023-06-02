@@ -10,7 +10,7 @@ import { SignUp } from "./components/SignUp/SignUp";
 import { Product } from "./pages/Product";
 import { NavBar } from "./components/NavBar/NavBar";
 import { RequireAuth } from "./components/RequireAuth/RequireAuth";
-import { Cart } from "./components/Cart/Cart";
+import { Cart } from "./pages/Cart/Cart";
 import { WishList } from "./pages/Wishlist";
 
 function App() {

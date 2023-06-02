@@ -103,7 +103,11 @@ export const CartCard = ({ cart }) => {
               ) : (
                 <p>{cart?.qty}</p>
               )}
-              <IconButton onClick={() => decrement(cart)}>
+              <IconButton
+                onClick={() =>
+                  cart.qty <= 1 ? removeProduct(cart) : decrement(cart)
+                }
+              >
                 <RemoveIcon />
               </IconButton>
             </Stack>

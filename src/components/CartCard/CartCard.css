@@ -1,18 +1,17 @@
-.cartcard{
-    display: flex;
-    padding: 8px;
-    border: 2px solid red;
-    border-radius: 5px;
-    flex-wrap: wrap;
-    gap: 5px;
-    width: 900px;
-    margin: 5px;
-    
+.cartcard {
+  display: flex;
+  padding: 8px;
+  border: 2px solid red;
+  border-radius: 5px;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 500px;
+  margin: 5px;
 }
-.item-image{
-    aspect-ratio: 1/1;
+.item-image {
+  aspect-ratio: 1/1;
   object-fit: cover;
 }
-.cartqty{
-    display: flex;
+.cartqty {
+  display: flex;
 }
