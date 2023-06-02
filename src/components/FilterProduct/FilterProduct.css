@@ -1,4 +1,34 @@
-.clearData:hover{
-    cursor: pointer;
+.filter {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 250px;
+  margin-top: 20px;
+  padding: 8px;
+}
+.clearData:hover {
+  cursor: pointer;
+}
+.filterheading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
+.category {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.rattingcontainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.sort {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
