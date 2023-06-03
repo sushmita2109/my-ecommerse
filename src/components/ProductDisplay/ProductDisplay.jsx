@@ -5,11 +5,13 @@ import "./ProductDisplay.css";
 import Card from "@mui/material/Card";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
+import { useNavigate } from "react-router-dom";
 
 export const ProductDisplay = () => {
   const { dispatch, filteredProducts } = useProduct();
   const { addItemToCartHandler } = useCart();
   const { addToWishlist } = useWishlist();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +23,7 @@ export const ProductDisplay = () => {
     };
     fetchData();
   }, [dispatch]);
+
   return (
     <>
       <div className="productCard">
@@ -36,13 +39,18 @@ export const ProductDisplay = () => {
                 flexDirection: "column",
               }}
             >
-              <img
-                className="product-image"
-                src={product.image}
-                alt="productimage"
-                width="350px"
-                height="350px"
-              />
+              <div
+                className="product-image-container"
+                onClick={() => navigate(`/product/${product._id}`)}
+              >
+                <img
+                  className="product-image"
+                  src={product.image}
+                  alt="productimage"
+                  width="350px"
+                  height="350px"
+                />
+              </div>
               <div className="product-title">
                 {product.brand}-{product.name}
               </div>
