@@ -20,7 +20,7 @@ export const products = [
     isDiscount: true,
     discountedPrice: "4999",
     isBestSeller: true,
-    inStock: [true, false, false, true],
+    inStock: false,
   },
   {
     _id: uuid(),
@@ -35,7 +35,7 @@ export const products = [
     isDiscount: false,
     discountedPrice: "",
     isBestSeller: false,
-    inStock: [true, false, false, false],
+    inStock: true,
   },
   {
     _id: uuid(),
@@ -50,7 +50,7 @@ export const products = [
     isDiscount: true,
     discountedPrice: "1399",
     isBestSeller: true,
-    inStock: [false, false, false, true],
+    inStock: false,
   },
   {
     _id: uuid(),
@@ -65,7 +65,7 @@ export const products = [
     isDiscount: true,
     discountedPrice: "3999",
     isBestSeller: true,
-    inStock: [true, true, false, true],
+    inStock: true,
   },
   {
     _id: uuid(),
@@ -80,7 +80,7 @@ export const products = [
     isDiscount: true,
     discountedPrice: "2099",
     isBestSeller: false,
-    inStock: [true, false, false, true],
+    inStock: false,
   },
   {
     _id: uuid(),
@@ -95,7 +95,7 @@ export const products = [
     isDiscount: false,
     discountedPrice: "",
     isBestSeller: false,
-    inStock: [true, false, true, true],
+    inStock: true,
   },
   {
     _id: uuid(),
@@ -110,6 +110,6 @@ export const products = [
     isDiscount: false,
     discountedPrice: "",
     isBestSeller: false,
-    inStock: [true, true, false, true],
+    inStock: true,
   },
 ];
