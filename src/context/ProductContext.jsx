@@ -12,6 +12,8 @@ const initialState = {
   ratingValue: "",
   priceRange: "",
   user: {},
+  addresses: [],
+  selectedAddress: null,
 };
 
 export const ProductProvider = ({ children }) => {
@@ -69,6 +71,8 @@ export const ProductProvider = ({ children }) => {
         sortMethod: state.sortMethod,
         ratingValue: state.ratingValue,
         priceRange: state.priceRange,
+        addresses: state.addresses,
+        selectedAddress: state.selectedAddress,
       }}
     >
       {children}

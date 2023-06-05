@@ -13,6 +13,7 @@ import { RequireAuth } from "./components/RequireAuth/RequireAuth";
 import { Cart } from "./pages/Cart/Cart";
 import { WishList } from "./pages/Wishlist";
 import { IndividualProduct } from "./pages/IndiviualProduct/IndividualProduct";
+import { Checkout } from "./pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/product" element={<Product />} />
         <Route path="/product/:productId" element={<IndividualProduct />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route
           path="/cart"
           element={

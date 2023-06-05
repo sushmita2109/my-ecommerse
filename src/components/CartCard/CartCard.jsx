@@ -126,12 +126,6 @@ export const CartCard = ({ cart }) => {
           </div>
         </div>
       </Card>
-
-      {/* {cart.length < 0 && (
-        <>
-          <button>Checkout</button>
-        </>
-      )} */}
     </div>
   );
 };
