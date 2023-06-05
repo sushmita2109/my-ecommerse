@@ -5,9 +5,8 @@
 }
 
 .modal__close {
-  background-color: red;
   height: 4vh;
-  color: white;
+  color: black;
 }
 
 .user-address {

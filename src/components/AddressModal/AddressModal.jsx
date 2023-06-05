@@ -4,6 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { toast } from "react-toastify";
 import Modal from "@mui/material/Modal";
 import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
 
 export const AddressModal = ({
   setShowAddressModal,
@@ -11,10 +12,6 @@ export const AddressModal = ({
   mode,
   previousAddress,
 }) => {
-  console.log(
-    "🚀 ~ file: AddressModal.jsx:14 ~ showAddressModal:",
-    showAddressModal
-  );
   const { addresses, dispatch } = useProduct();
   const [address, setAddress] = useState({
     name: "",
@@ -175,19 +172,19 @@ export const AddressModal = ({
               />
             </fieldset>
             <div>
-              <button
+              <Button
                 className="add__address__btn"
                 onClick={handleAddressAddOrUpdate}
               >
                 {mode === "add" ? "Add Address" : "Update Address"}
-              </button>
+              </Button>
 
-              <button
+              <Button
                 className="dummy__address__btn"
                 onClick={() => setAddress(dummyAddress)}
               >
                 Dummy Address
-              </button>
+              </Button>
             </div>
           </div>
         </section>
