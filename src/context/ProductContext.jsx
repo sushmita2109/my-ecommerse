@@ -74,6 +74,8 @@ export const ProductProvider = ({ children }) => {
         addresses: state.addresses,
         selectedAddress: state.selectedAddress,
         categoryData: state.categoryData,
+        userFirstName: state.user.firstName,
+        userLastName: state.user.lastName,
       }}
     >
       {children}

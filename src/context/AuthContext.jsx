@@ -140,6 +140,7 @@ export const AuthProvider = ({ children }) => {
         validateLogin,
         loggedIn,
         validateSignUp,
+        setLoggedIn,
       }}
     >
       {children}

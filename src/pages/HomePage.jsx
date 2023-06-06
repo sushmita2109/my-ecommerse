@@ -6,6 +6,7 @@ export const HomePage = () => {
   return (
     <div>
       <Jumbotron />
+
       <CategoryCard />
       <Footer />
     </div>
