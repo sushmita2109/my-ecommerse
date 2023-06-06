@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { reducer } from "./Reducer";
 export const ProductContext = createContext();
 
@@ -12,6 +12,8 @@ const initialState = {
   ratingValue: "",
   priceRange: "",
   user: {},
+  addresses: [],
+  selectedAddress: null,
 };
 
 export const ProductProvider = ({ children }) => {
@@ -69,6 +71,12 @@ export const ProductProvider = ({ children }) => {
         sortMethod: state.sortMethod,
         ratingValue: state.ratingValue,
         priceRange: state.priceRange,
+        addresses: state.addresses,
+        selectedAddress: state.selectedAddress,
+        categoryData: state.categoryData,
+        userFirstName: state.user.firstName,
+        userLastName: state.user.lastName,
+        userEmail: state.user.email,
       }}
     >
       {children}

@@ -22,12 +22,34 @@ const intialState = {
   loggedIn: false,
 };
 
+const defaultAddress = {
+  id: 1,
+  name: "Sushmita Kumari",
+  houseNo: "E 303 Mont Vert",
+  city: "Pune",
+  state: "Maharstra",
+  country: "India",
+  zip: "342001",
+  phoneNo: "8080808080",
+};
+
 export const AuthProvider = ({ children }) => {
   const [authState, authDispatch] = useReducer(authReducer, intialState);
   const [userInfo, setUserInfo] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
   const { dispatch } = useProduct();
+  const token = localStorage.getItem("Code");
+  const user = localStorage.getItem("user");
+
+  useEffect(() => {
+    if (token) {
+      setLoggedIn(true);
+      dispatch({ type: "SET_USER_DATA", payload: JSON.parse(user) });
+      dispatch({ type: "SET_DEFAULT_ADDRESS", payload: defaultAddress });
+      dispatch({ type: "SET_SELECTED_ADDRESS", payload: defaultAddress });
+    }
+  }, [token, user]);
 
   useEffect(() => {
     if (userInfo) {
@@ -51,7 +73,10 @@ export const AuthProvider = ({ children }) => {
       toast("Login Succesfully");
       setLoggedIn(true);
       localStorage.setItem("Code", data.encodedToken);
-      console.log(authState.location);
+      localStorage.setItem("user", JSON.stringify(data.foundUser));
+      dispatch({ type: "SET_USER_DATA", payload: data.foundUser });
+      dispatch({ type: "SET_DEFAULT_ADDRESS", payload: defaultAddress });
+      dispatch({ type: "SET_SELECTED_ADDRESS", payload: defaultAddress });
       navigate(authState.location);
     } catch (e) {
       toast.error(e[0]);
@@ -115,6 +140,7 @@ export const AuthProvider = ({ children }) => {
         validateLogin,
         loggedIn,
         validateSignUp,
+        setLoggedIn,
       }}
     >
       {children}

@@ -1,11 +1,11 @@
-.wishlistcard{
-    display: flex;
-    padding: 8px;
-    border: 2px solid red;
-    border-radius: 5px;
-    flex-wrap: wrap;
-    gap: 5px;
-    width: 900px;
-    margin: 5px;
-    
+.wishlistcard {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 300px;
+  margin: 5px;
+  align-items: center;
+  justify-content: center;
 }

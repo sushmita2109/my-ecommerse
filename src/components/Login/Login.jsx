@@ -1,5 +1,5 @@
 import Input from "@mui/material/Input";
-import { Button, Card } from "@mui/material";
+import { Button } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import "./Login.css";
 import { useAuth } from "../../context/AuthContext";

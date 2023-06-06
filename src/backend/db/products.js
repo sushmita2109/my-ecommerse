@@ -1,4 +1,3 @@
-import { faL } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuid } from "uuid";
 
 /**

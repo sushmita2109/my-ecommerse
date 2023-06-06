@@ -1,0 +1,25 @@
+.cart-price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 8px;
+  height: max-content;
+  background-color: white;
+  border-radius: 0.4rem;
+}
+
+.cart-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.orderprices {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+hr {
+  width: 100%;
+}

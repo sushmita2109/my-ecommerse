@@ -9,16 +9,18 @@ import { useProduct } from "../../context/ProductContext";
 import Badge from "@material-ui/core/Badge";
 import { useWishlist } from "../../context/WishlistContext";
 import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
 
 export const NavBar = () => {
   const { dispatch } = useProduct();
   const { wishlistState } = useWishlist();
   const { cartState } = useCart();
+  const { loggedIn } = useAuth();
 
   return (
     <nav>
       <div className="title">
-        <Link to="/">
+        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
           {" "}
           <p>SneakerShop</p>
         </Link>
@@ -38,9 +40,15 @@ export const NavBar = () => {
         />
       </div>
       <div className="actions">
-        <Link className="actionLink" to="/login">
-          Login
-        </Link>
+        {loggedIn ? (
+          <Link to="/profile" className="actionLink">
+            Profile
+          </Link>
+        ) : (
+          <Link className="actionLink" to="/login">
+            Login
+          </Link>
+        )}
         <Link to="/wishlist">
           <Badge
             badgeContent={wishlistState.wishlistProduct.length}

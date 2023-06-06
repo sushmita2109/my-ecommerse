@@ -30,6 +30,8 @@ export const cartReducer = (state, action) => {
         cartProduct: newState,
       };
     }
+    case "CLEAR_CART":
+      return { ...state, cartProduct: action.payload };
     default:
       return state;
   }

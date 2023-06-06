@@ -1,0 +1,15 @@
+.address-container {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.address-details {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 4px;
+  padding: 8px;
+}

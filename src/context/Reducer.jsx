@@ -49,6 +49,22 @@ export const reducer = (state, action) => {
       return { ...state, sortMethod: action.payload };
     case "SET_USER_DATA":
       return { ...state, user: action.payload };
+    case "SET_SELECTED_ADDRESS":
+      return { ...state, selectedAddress: action.payload };
+    case "SET_DEFAULT_ADDRESS":
+      return { ...state, addresses: [action.payload] };
+    case "ADD_ADDRESS":
+      return { ...state, addresses: [...state.addresses, action.payload] };
+    case "DELETE_ADDRESS": {
+      const deletedAddress = action.payload;
+
+      const newAddresses = state.addresses.filter(
+        ({ id }) => id !== deletedAddress.id
+      );
+
+      return { ...state, addresses: newAddresses };
+    }
+
     default: {
       return state;
     }

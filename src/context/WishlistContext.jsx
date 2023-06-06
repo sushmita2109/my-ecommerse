@@ -1,5 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import { wishlistReducer } from "../Reducers/WishlistReducer";
+import { toast } from "react-toastify";
+import { useAuth } from "./AuthContext";
 
 export const WishlistContext = createContext();
 
@@ -13,6 +15,8 @@ export const WishlistProvider = ({ children }) => {
     wishlistReducer,
     initialState
   );
+  const { loggedIn } = useAuth();
+
   const getWishlist = async () => {
     try {
       const response = await fetch("/api/user/wishlist", {
@@ -22,42 +26,44 @@ export const WishlistProvider = ({ children }) => {
         },
       });
       const data = await response.json();
-      console.log(
-        "🚀 ~ file: WishlistContext.jsx:25 ~ getWishlist ~ data:",
-        data
-      );
-      wishlistDispatch({
-        type: "ADD_WISHLIST_PRODUCT",
-        payload: data.wishlist,
-      });
-    } catch (error) {
-      console.log(
-        "🚀 ~ file: WishlistContext.jsx:30 ~ getWishlist ~ error:",
-        error
-      );
-    }
-  };
-  const addToWishlist = async (product) => {
-    try {
-      const response = await fetch("/api/user/wishlist", {
-        method: "POST",
-        headers: {
-          authorization: token,
-        },
-        body: JSON.stringify({ product }),
-      });
-      const data = await response.json();
-      console.log(
-        "🚀 ~ file: WishlistContext.jsx:26 ~ addToWishlist ~ data: ",
-        data
-      );
 
       wishlistDispatch({
         type: "ADD_WISHLIST_PRODUCT",
         payload: data.wishlist,
       });
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const addToWishlist = async (product) => {
+    const isItemAlreadyPresent = wishlistState.wishlistProduct.findIndex(
+      (item) => item._id === product._id
+    );
+    if (loggedIn && isItemAlreadyPresent === -1) {
+      try {
+        const response = await fetch("/api/user/wishlist", {
+          method: "POST",
+          headers: {
+            authorization: token,
+          },
+          body: JSON.stringify({ product }),
+        });
+        const data = await response.json();
+
+        wishlistDispatch({
+          type: "ADD_WISHLIST_PRODUCT",
+          payload: data.wishlist,
+        });
+        toast.success(`${product.name} added to wishlist`);
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      if (loggedIn === false) {
+        toast.error("Please Login");
+      } else {
+        toast.warning("Alredy added to wishlist");
+      }
     }
   };
 
@@ -70,11 +76,7 @@ export const WishlistProvider = ({ children }) => {
         },
       });
       const data = await response.json();
-      console.log(
-        "🚀 ~ file: WishlistContext.jsx:49 ~ removeProduct ~ data:",
-        data
-      );
-
+      toast.warning(`${wishlist.name} removed from wishlist`);
       wishlistDispatch({ type: "REMOVE_WISHLIST", payload: data.wishlist });
     } catch (e) {
       console.log(e);

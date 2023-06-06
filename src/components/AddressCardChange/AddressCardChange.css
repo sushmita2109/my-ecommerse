@@ -1,0 +1,15 @@
+.address-select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal__close {
+  height: 4vh;
+  color: black;
+}
+
+.user-address {
+  display: flex;
+  flex-direction: column;
+}

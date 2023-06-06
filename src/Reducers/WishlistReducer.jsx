@@ -1,9 +1,4 @@
 export const wishlistReducer = (state, action) => {
-  console.log(
-    "🚀 ~ file: WishlistReducer.jsx:2 ~ wishlistReducer ~ action:",
-    action
-  );
-
   switch (action.type) {
     case "ADD_WISHLIST_PRODUCT": {
       const newState = [...action.payload];
@@ -25,6 +20,9 @@ export const wishlistReducer = (state, action) => {
         wishlistProduct: action.payload,
       };
     }
+    case "CLEAR_WISHLIST":
+      return { ...state, wishlist: action.payload };
+
     default: {
       return state;
     }

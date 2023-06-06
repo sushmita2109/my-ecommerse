@@ -1,15 +1,8 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import { cartReducer } from "../Reducers/CartReducer";
 import { useAuth } from "./AuthContext";
-import { useNavigate } from "react-router-dom";
+
 import { toast } from "react-toastify";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 export const CartContext = createContext();
 
@@ -22,22 +15,33 @@ export const CartProvider = ({ children }) => {
   const token = localStorage.getItem("Code");
   const [loadingQty, setLoadingQty] = useState(false);
   const { loggedIn } = useAuth();
-  const navigate = useNavigate();
 
   const addItemToCartHandler = async (product) => {
-    if (loggedIn) {
-      const response = await fetch("/api/user/cart", {
-        method: "POST",
-        headers: {
-          authorization: token,
-        },
-        body: JSON.stringify({ product }),
-      }).then((res) => res.json());
-      cartDispatch({ type: "ADD_CART_PRODUCT", payload: response.cart });
+    const isItemAlreadyPresent = cartState.cartProduct.findIndex(
+      (item) => item._id === product._id
+    );
+    if (loggedIn && isItemAlreadyPresent === -1) {
+      try {
+        const response = await fetch("/api/user/cart", {
+          method: "POST",
+          headers: {
+            authorization: token,
+          },
+          body: JSON.stringify({ product }),
+        }).then((res) => res.json());
+        cartDispatch({ type: "ADD_CART_PRODUCT", payload: response.cart });
 
-      toast.success(`${product.name} added to cart`);
+        toast.success(`${product.name} added to cart`);
+      } catch (e) {
+        console.log(e);
+      }
     } else {
-      toast.error("Please Login ");
+      if (loggedIn === false) {
+        toast.error("Please Login");
+      } else {
+        increment(product);
+        toast.success(`${product.name} quantity is increased`);
+      }
     }
   };
 
@@ -57,6 +61,7 @@ export const CartProvider = ({ children }) => {
       });
       const data = await response.json();
       setLoadingQty(false);
+      cartDispatch({ type: "DECREMENT", payload: data.cart });
     } catch (e) {
       console.log(e);
     }
@@ -94,6 +99,8 @@ export const CartProvider = ({ children }) => {
       });
       const res = await response.json();
       cartDispatch({ type: "REMOVE", payload: res.cart });
+
+      toast.warning(`${cart.name} removed from cart`);
     } catch (e) {
       console.log(e);
     }
