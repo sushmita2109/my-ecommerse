@@ -15,7 +15,7 @@ export const Profile = () => {
     }
   };
   return (
-    <div>
+    <div className="profile">
       <Card className="profile-container">
         <Button onClick={() => setSelectedItem("profile")}>Profile</Button>
         <Button onClick={() => setSelectedItem("address")}>Address</Button>
