@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-import { cartReducer } from "../../Reducers/CartReducer";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 import Card from "@mui/material/Card";
@@ -12,13 +10,12 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "./CartCard.css";
 import ReactLoading from "react-loading";
-import { useProduct } from "../../context/ProductContext";
 
 export const CartCard = ({ cart }) => {
   const { increment, decrement, removeProduct, loadingQty, cartDispatch } =
     useCart();
-  const { state } = useProduct();
-  const { wishlistState, wishlistDispatch } = useWishlist();
+
+  const { wishlistDispatch } = useWishlist();
 
   const token = localStorage.getItem("Code");
 
@@ -87,7 +84,12 @@ export const CartCard = ({ cart }) => {
             <p>
               {cart?.name}-{cart?.brand}
             </p>
-            <p>{cart?.price}</p>
+            {cart?.isDiscount && (
+              <div className="discountedPrice"> ₹ {cart.discountedPrice}</div>
+            )}
+            <div className={cart.isDiscount ? "product-price" : "productprice"}>
+              <p>{cart?.price}</p>
+            </div>
             <p>{cart?.rating}</p>
             <Stack direction="row" alignItems="center" spacing={1}>
               <IconButton onClick={() => increment(cart)}>

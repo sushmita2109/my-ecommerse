@@ -1,15 +1,8 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import { cartReducer } from "../Reducers/CartReducer";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 export const CartContext = createContext();
 
@@ -94,6 +87,7 @@ export const CartProvider = ({ children }) => {
       });
       const res = await response.json();
       cartDispatch({ type: "REMOVE", payload: res.cart });
+      toast.warning(`${cart.name} removed from cart`);
     } catch (e) {
       console.log(e);
     }

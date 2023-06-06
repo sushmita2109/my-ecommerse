@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useProduct } from "../../context/ProductContext";
 import Card from "@mui/material/Card";
-import LabelIcon from "@mui/icons-material/Label";
-import IconButton from "@mui/material/IconButton";
 import "./IndiviualProductCard.css";
 
 export const IndividualProductCard = () => {
@@ -27,18 +25,8 @@ export const IndividualProductCard = () => {
     isBestSeller,
   } = selectedProduct ?? "";
   return (
-    <Card
-      className="indiviual-product-container"
-      //   sx={{ backgroundColor: "plum" }}
-    >
-      <div className="image-container">
-        {/* {isBestSeller ? (
-          <IconButton aria-label="Example">
-            <LabelIcon sx={{ fontSize: 100 }} label="BEST SELLER" />
-          </IconButton>
-        ) : null} */}
-        <img src={image} alt="productImage" />
-      </div>
+    <Card className="indiviual-product-container">
+      <img src={image} alt="productImage" />
       <div className="product-details">
         <p>
           {name}-{brand}
