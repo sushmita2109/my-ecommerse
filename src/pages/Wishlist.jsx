@@ -7,7 +7,7 @@ export const WishList = () => {
 
   useEffect(() => {
     getWishlist();
-  }, []);
+  }, [getWishlist]);
   return (
     <div
       style={{

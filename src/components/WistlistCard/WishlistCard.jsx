@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 import "./WishlistCard.css";
@@ -10,9 +9,9 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarIcon from "@mui/icons-material/Star";
 
 export const WhishlistCard = ({ wishlist }) => {
-  const { removeProduct, wishlistDispatch, wishlistState } = useWishlist();
+  const { removeProduct, wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
-  const navigate = useNavigate();
+
   const token = localStorage.getItem("Code");
 
   const moveProductToCart = async (product) => {

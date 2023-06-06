@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
       dispatch({ type: "SET_DEFAULT_ADDRESS", payload: defaultAddress });
       dispatch({ type: "SET_SELECTED_ADDRESS", payload: defaultAddress });
     }
-  }, []);
+  }, [token, user]);
 
   useEffect(() => {
     if (userInfo) {

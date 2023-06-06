@@ -20,7 +20,7 @@ export const NavBar = () => {
   return (
     <nav>
       <div className="title">
-        <Link to="/">
+        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
           {" "}
           <p>SneakerShop</p>
         </Link>

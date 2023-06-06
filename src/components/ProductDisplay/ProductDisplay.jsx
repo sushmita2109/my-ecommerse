@@ -11,6 +11,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Button from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarIcon from "@mui/icons-material/Star";
+import { makeStyles } from "@material-ui/core/styles";
 
 export const ProductDisplay = () => {
   const { dispatch, filteredProducts } = useProduct();
@@ -35,7 +36,9 @@ export const ProductDisplay = () => {
   return (
     <>
       {isLoading ? (
-        <CircularProgress />
+        <div className="loader">
+          <CircularProgress size={100} thickness={4} />
+        </div>
       ) : (
         <div className="productCard">
           {filteredProducts?.map((product) => (
