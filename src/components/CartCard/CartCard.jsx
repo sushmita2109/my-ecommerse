@@ -10,6 +10,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "./CartCard.css";
 import ReactLoading from "react-loading";
+import StarIcon from "@mui/icons-material/Star";
 
 export const CartCard = ({ cart }) => {
   const { increment, decrement, removeProduct, loadingQty, cartDispatch } =
@@ -90,7 +91,10 @@ export const CartCard = ({ cart }) => {
             <div className={cart.isDiscount ? "product-price" : "productprice"}>
               <p>{cart?.price}</p>
             </div>
-            <p>{cart?.rating}</p>
+            <p style={{ display: "flex" }}>
+              {cart?.rating}{" "}
+              <StarIcon sx={{ fontSize: "20px", color: "gold" }} />
+            </p>
             <Stack direction="row" alignItems="center" spacing={1}>
               <IconButton onClick={() => increment(cart)}>
                 <AddIcon />

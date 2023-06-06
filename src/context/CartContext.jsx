@@ -17,19 +17,31 @@ export const CartProvider = ({ children }) => {
   const { loggedIn } = useAuth();
 
   const addItemToCartHandler = async (product) => {
-    if (loggedIn) {
-      const response = await fetch("/api/user/cart", {
-        method: "POST",
-        headers: {
-          authorization: token,
-        },
-        body: JSON.stringify({ product }),
-      }).then((res) => res.json());
-      cartDispatch({ type: "ADD_CART_PRODUCT", payload: response.cart });
+    const isItemAlreadyPresent = cartState.cartProduct.findIndex(
+      (item) => item._id === product._id
+    );
+    if (loggedIn && isItemAlreadyPresent === -1) {
+      try {
+        const response = await fetch("/api/user/cart", {
+          method: "POST",
+          headers: {
+            authorization: token,
+          },
+          body: JSON.stringify({ product }),
+        }).then((res) => res.json());
+        cartDispatch({ type: "ADD_CART_PRODUCT", payload: response.cart });
 
-      toast.success(`${product.name} added to cart`);
+        toast.success(`${product.name} added to cart`);
+      } catch (e) {
+        console.log(e);
+      }
     } else {
-      toast.error("Please Login ");
+      if (loggedIn === false) {
+        toast.error("Please Login");
+      } else {
+        increment(product);
+        toast.success(`${product.name} quantity is increased`);
+      }
     }
   };
 

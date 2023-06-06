@@ -7,6 +7,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import StarIcon from "@mui/icons-material/Star";
 
 export const WhishlistCard = ({ wishlist }) => {
   const { removeProduct, wishlistDispatch, wishlistState } = useWishlist();
@@ -60,7 +61,10 @@ export const WhishlistCard = ({ wishlist }) => {
             </p>
           </div>
 
-          <p>{wishlist?.rating}</p>
+          <p style={{ display: "flex" }}>
+            {wishlist?.rating}{" "}
+            <StarIcon sx={{ fontSize: "20px", color: "gold" }} />
+          </p>
           <Button
             onClick={() => moveProductToCart(wishlist)}
             startIcon={<ShoppingCartIcon />}

@@ -76,6 +76,7 @@ export const ProductProvider = ({ children }) => {
         categoryData: state.categoryData,
         userFirstName: state.user.firstName,
         userLastName: state.user.lastName,
+        userEmail: state.user.email,
       }}
     >
       {children}

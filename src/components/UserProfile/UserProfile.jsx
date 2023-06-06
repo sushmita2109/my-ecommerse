@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 export const UserProfile = () => {
-  const { userFirstName, userLastName } = useProduct();
+  const { userFirstName, userLastName, userEmail } = useProduct();
   const { setLoggedIn, authDispatch } = useAuth();
   const { cartDispatch } = useCart();
   const { wishlistDispatch } = useWishlist();
@@ -28,6 +28,7 @@ export const UserProfile = () => {
       <h3>
         Welcome {userFirstName} {userLastName}
       </h3>
+      <p>Email: {userEmail}</p>
       <Button onClick={() => handleLogout()}>Logout</Button>
     </div>
   );

@@ -36,23 +36,34 @@ export const WishlistProvider = ({ children }) => {
     }
   };
   const addToWishlist = async (product) => {
-    if (loggedIn) {
-      const response = await fetch("/api/user/wishlist", {
-        method: "POST",
-        headers: {
-          authorization: token,
-        },
-        body: JSON.stringify({ product }),
-      });
-      const data = await response.json();
+    const isItemAlreadyPresent = wishlistState.wishlistProduct.findIndex(
+      (item) => item._id === product._id
+    );
+    if (loggedIn && isItemAlreadyPresent === -1) {
+      try {
+        const response = await fetch("/api/user/wishlist", {
+          method: "POST",
+          headers: {
+            authorization: token,
+          },
+          body: JSON.stringify({ product }),
+        });
+        const data = await response.json();
 
-      wishlistDispatch({
-        type: "ADD_WISHLIST_PRODUCT",
-        payload: data.wishlist,
-      });
-      toast.success(`${product.name} added to wishlist`);
+        wishlistDispatch({
+          type: "ADD_WISHLIST_PRODUCT",
+          payload: data.wishlist,
+        });
+        toast.success(`${product.name} added to wishlist`);
+      } catch (e) {
+        console.log(e);
+      }
     } else {
-      toast.error("Please Login");
+      if (loggedIn === false) {
+        toast.error("Please Login");
+      } else {
+        toast.warning("Alredy added to wishlist");
+      }
     }
   };
 
