@@ -1,12 +1,13 @@
-import { Category } from "../components/Category/Category";
+import { CategoryCard } from "../components/CategoryCard/CategoryCard";
+import { Footer } from "../components/Footer/Footer";
 import { Jumbotron } from "../components/Jumbotron/Jumbotron";
 
 export const HomePage = () => {
   return (
     <div>
       <Jumbotron />
-      <Category />
-      <h1>HomePage</h1>
+      <CategoryCard />
+      <Footer />
     </div>
   );
 };

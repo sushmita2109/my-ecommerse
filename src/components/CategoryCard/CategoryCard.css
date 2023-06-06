@@ -1,0 +1,11 @@
+.category-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+}

@@ -73,6 +73,7 @@ export const ProductProvider = ({ children }) => {
         priceRange: state.priceRange,
         addresses: state.addresses,
         selectedAddress: state.selectedAddress,
+        categoryData: state.categoryData,
       }}
     >
       {children}

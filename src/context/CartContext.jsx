@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useState } from "react";
 import { cartReducer } from "../Reducers/CartReducer";
 import { useAuth } from "./AuthContext";
-import { useNavigate } from "react-router-dom";
+
 import { toast } from "react-toastify";
 
 export const CartContext = createContext();
@@ -15,7 +15,6 @@ export const CartProvider = ({ children }) => {
   const token = localStorage.getItem("Code");
   const [loadingQty, setLoadingQty] = useState(false);
   const { loggedIn } = useAuth();
-  const navigate = useNavigate();
 
   const addItemToCartHandler = async (product) => {
     if (loggedIn) {
@@ -50,6 +49,7 @@ export const CartProvider = ({ children }) => {
       });
       const data = await response.json();
       setLoadingQty(false);
+      cartDispatch({ type: "DECREMENT", payload: data.cart });
     } catch (e) {
       console.log(e);
     }
@@ -87,6 +87,7 @@ export const CartProvider = ({ children }) => {
       });
       const res = await response.json();
       cartDispatch({ type: "REMOVE", payload: res.cart });
+
       toast.warning(`${cart.name} removed from cart`);
     } catch (e) {
       console.log(e);

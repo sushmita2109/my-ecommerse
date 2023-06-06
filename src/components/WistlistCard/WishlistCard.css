@@ -1,5 +1,6 @@
 .wishlistcard {
   display: flex;
+  flex-direction: row;
   padding: 8px;
   flex-wrap: wrap;
   gap: 5px;

@@ -2,7 +2,7 @@
   margin: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 2px;
   grid-auto-rows: minmax(50px, auto);
 }
 /* .productitems{
@@ -19,13 +19,16 @@
   display: flex;
   flex-direction: column;
   font-family: Arial;
-  background: peachpuff;
-  padding: 5px;
+
+  padding: 2px;
+  width: 250px;
 }
 
 .product-image {
+  width: 250px;
   aspect-ratio: 16/9;
   object-fit: scale-down;
+  margin: auto;
 }
 .product-image :hover {
   transform: scale(1.1, 1.1);
@@ -33,7 +36,18 @@
 }
 
 .product-title {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.brand-rating {
+  display: flex;
+  width: 400px;
+  height: 23px;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .shoeSize {
   display: flex;
@@ -47,11 +61,21 @@
   display: flex;
   padding: 6px;
   gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
 .productprice {
   margin-top: 5px;
   color: black;
 }
+
+.size {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
+
 .product-price {
   margin-top: 5px;
   color: #888;
@@ -64,4 +88,9 @@
 
 .buttons-div {
   padding: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2px;
+  align-items: center;
+  justify-content: center;
 }

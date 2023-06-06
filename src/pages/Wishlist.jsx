@@ -18,9 +18,18 @@ export const WishList = () => {
       }}
     >
       <h1>Wishlist</h1>
-      {wishlistState?.wishlistProduct?.map((wishlist) => (
-        <WhishlistCard wishlist={wishlist} key={wishlist._id} />
-      ))}
+      <div
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        {wishlistState?.wishlistProduct?.map((wishlist) => (
+          <WhishlistCard wishlist={wishlist} key={wishlist._id} />
+        ))}
+      </div>
     </div>
   );
 };
