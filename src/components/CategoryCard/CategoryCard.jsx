@@ -26,13 +26,17 @@ export const CategoryCard = () => {
   }, [dispatch]);
 
   return (
-    <Card>
+    <Card
+      sx={{
+        width: "900px",
+      }}
+    >
       <h1
         style={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
           justifyContent: "center",
+          alignItems: "center",
         }}
       >
         Categories
@@ -40,7 +44,7 @@ export const CategoryCard = () => {
       <div className="category-container">
         {categoryData.map((category) => {
           return (
-            <div key={category._id} className="category-card">
+            <Card key={category._id} className="category-card">
               <h3
                 style={{
                   margin: "1px",
@@ -52,9 +56,9 @@ export const CategoryCard = () => {
                 to="/product"
                 onClick={() => handleCategory(category.categoryName)}
               >
-                <img src={category.image} alt="categoryImage" />
+                <img src={category.image} alt="categoryImage" width="450px" />
               </Link>
-            </div>
+            </Card>
           );
         })}
       </div>

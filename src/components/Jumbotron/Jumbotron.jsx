@@ -1,7 +1,7 @@
+import { Button } from "@mui/material";
 import "./Jumbotron.css";
-import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Jumbotron = () => {
   const navigate = useNavigate();
@@ -11,15 +11,24 @@ export const Jumbotron = () => {
   };
 
   return (
-    <Card class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">SneakerStore</h1>
-        <p class="lead">
-          If you are looking for stylish shoes online, then you are bound to be
-          spoiled for choice.
-        </p>
-        <Button onClick={() => handleExplore()}>Explore More</Button>
+    <div>
+      <div className="jumbotron">
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/013/773/654/small/banner-with-new-pair-of-white-sneakers-isolated-on-light-yellow-and-orange-background-sportive-pair-of-shoes-for-mockup-fashionable-stylish-sports-casual-shoes-photo.jpg"
+          alt="jumboImage"
+          style={{
+            width: "1500px",
+            height: "250px",
+            objectFit: "fill",
+            aspectRatio: 0.5,
+            position: "relative",
+          }}
+        />
+        <h1 className="jumbotitle">SneakerStore </h1>
+        <Button className="btn" onClick={() => handleExplore()}>
+          Explore More
+        </Button>
       </div>
-    </Card>
+    </div>
   );
 };
