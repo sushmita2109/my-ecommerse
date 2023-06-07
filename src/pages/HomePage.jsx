@@ -6,14 +6,7 @@ export const HomePage = () => {
   return (
     <div>
       <Jumbotron />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "centre",
-          justifyContent: "center",
-        }}
-      >
+      <div className="categorycard">
         <CategoryCard />
       </div>
 

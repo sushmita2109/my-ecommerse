@@ -4,3 +4,10 @@
   justify-content: space-between;
   background-image: url("https://media.istockphoto.com/id/1144648110/vector/colorful-seamless-pattern-of-shoe-prints-vector-illustration.jpg?s=1024x1024&w=is&k=20&c=beWeS7Xwg3FCos1MEdyIrcXRI4wkFWN3MeYwljrRYUE=");
 }
+
+.categorycard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
