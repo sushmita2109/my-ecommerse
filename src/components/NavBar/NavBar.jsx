@@ -10,6 +10,7 @@ import Badge from "@material-ui/core/Badge";
 import { useWishlist } from "../../context/WishlistContext";
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 export const NavBar = () => {
   const { dispatch } = useProduct();
@@ -49,6 +50,9 @@ export const NavBar = () => {
             Login
           </Link>
         )}
+        <Link to="/product">
+          <ShoppingBagIcon style={{ color: "white" }} />
+        </Link>
         <Link to="/wishlist">
           <Badge
             badgeContent={wishlistState.wishlistProduct.length}
@@ -57,6 +61,7 @@ export const NavBar = () => {
             <FavoriteBorderIcon style={{ color: "white" }} />
           </Badge>
         </Link>
+
         <Link to="/cart">
           <Badge
             badgeContent={cartState.cartProduct.length}
