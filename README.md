@@ -20,3 +20,8 @@ This folder contains the Mock Backend created for E-Commerce App. It contains di
 12. Logout
 13. Address Management
 14. Checkout
+
+
+##Video of Project
+
+https://www.loom.com/share/7c116121091e40c5bf10eed33fe38b8b
